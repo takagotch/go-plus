@@ -4,6 +4,10 @@ https://github.com/joefitzgerald/go-plus
 
 ```js
 // spec/test/tester-spec.js
+import path from 'path'
+import { lifecycle } from './../spec-helpers'
+import { it, fit, ffit, beforeEach, runs } from '../async-spec-helpers'
+
 describe('tester', () => {
   let tester = null
   
@@ -28,6 +32,8 @@ describe('tester', () => {
     })
     
     afterEach(() => {
+      atom.config.set('go-plus.test.runTestsWithShortFlag', true)
+      atom.config.set('go-plus.test.runTestsWithVerboseFlag', false)
     })
     
     it('', () => {
